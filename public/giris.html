@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vecize</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+    <div class="container">
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <div class="form-group">
+            <label for="email">Adınız</label>
+            <input type="email" class="form-control" id="adInput">
+        </div>
+        <button id="btnGiris" type="submit" class="btn btn-default">Giriş</button>
+
+    </div>
+</body>
+
+<script>
+    var btnGiris = document.getElementById("btnGiris");
+    var adInput = document.getElementById("adInput");
+    btnGiris.onclick = function () {
+        var ad = adInput.value;
+
+        $.ajax({
+            type: 'post',
+            url: '/giris',
+            data: { 'ad': ad },
+            dataType: 'json',
+            success: function (res) {
+                var durum = res.kullanici.kullaniciDurum;
+                if (durum == 1) {
+                    window.location.href = '/admin';
+                } else {
+                    window.location.href = '/kullanici';
+                }
+            }
+        });
+
+    }
+</script>
+
+</html>

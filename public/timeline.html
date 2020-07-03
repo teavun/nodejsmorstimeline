@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> Mors Zaman Akışı </title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.js"></script>
+    <link rel="stylesheet" href="/timeline.css">
+</head>
+
+<body>
+    <!-- /container -->
+    <div class="container">
+        <div id="addpost" style="margin:50px;margin-bottom: 10px">
+            <div class="form-group">
+                <input id="user_input" type="text" class="form-control" placeholder="Adınız.." 
+                style="border:1px solid #000066; margin-bottom: 1%; padding:5px; font-size: 30px;"></div>
+            </div>
+
+            <div class="form-group">
+                <div id="post_input" class="form-control" style="border:1px solid #000066; margin-bottom: 1%; padding:5px; font-size: 30px;"></div>
+                <div id="post_note">boş mors gönderemezsiniz veya adınız boş olamaz</div>
+            </div>
+            <div class="form-group">
+                <button id="btn_nokta" class="btn btn-outline-danger btn-lg"> &sdot; </button>
+                <button id="btn_tire" class="btn btn-outline-primary btn-lg"> - </button>
+                <button id="btn_bosluk" class="btn btn-outline-warning btn-lg"> &nbsp; </button>
+                <button id="btn_sil" class="btn btn-outline-dark btn-lg"> &laquo; </button>
+                <button id="btn_gonder" class="btn btn-success" style="float:right"> Gönder </button>
+                <button id="btn_sos" class="btn btn-danger" style="float:right"> SOS </button>
+                <button id="btn_mors_alfabe" class="btn btn-link" style="float:right;"> Mors Alfabesi </button>
+                <div id="mors_alfabe" style="margin:10px;padding:10px"></div>
+            </div>
+
+
+            <button class="btn btn-primary btn-lg btn-block" id="not">
+                Mors Zaman Akışını Yenile
+                <span id="not_count"> </span>
+            </button>
+
+            <br>
+        </div>
+
+        <div class="container" id="timeline">
+
+
+        </div>
+    </div>
+</body>
+
+<script src="/mors.js"></script>
+
+</html>
